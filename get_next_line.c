@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:31:18 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 17:35:51 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:47:22 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ static char	*handle_end_of_file(t_array *array, long bytes_read)
 		|| (array->buffer && array->buffer[0] == 0))
 		return (array_delete(array));
 	len = ft_strlen(array->buffer);
-	printf("%d", len);
 	line = malloc(sizeof(char) * (len + 1));
 	if (!line)
 		return (array_delete(array));
