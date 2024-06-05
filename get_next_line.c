@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:31:18 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 17:47:22 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:47:57 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,6 @@ int	main(int argc, char **argv)
 			free(buffer);
 			buffer = get_next_line(fd);
 		}
-		printf("%s", buffer);
-		buffer = get_next_line(fd);
-		printf("%s", buffer);
 		close(fd);
 	}
 	return (0);
