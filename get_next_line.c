@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:31:18 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 17:47:57 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/06 22:45:02 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ static char	*handle_end_of_file(t_array *array, long bytes_read)
 	unsigned int	len;
 	char			*line;
 
-	if (bytes_read < 0 || array->count == 0
-		|| (array->buffer && array->buffer[0] == 0))
+	if (bytes_read < 0 || array->count == 0)
 		return (array_delete(array));
 	len = ft_strlen(array->buffer);
 	line = malloc(sizeof(char) * (len + 1));
@@ -77,13 +76,13 @@ char	*get_next_line(int fd)
 	long			bytes_read;
 	char			*line;
 
+	if (!array.buffer)
+		array_init(&array);
 	line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!line)
 		return (0);
-	if (!array.buffer)
-		array_init(&array);
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(line), array_delete(&array), NULL);
+		return (free(line), array_delete(&array));
 	while (carriage_index(&array) == -1)
 	{
 		bytes_read = read(fd, line, BUFFER_SIZE);
@@ -92,8 +91,7 @@ char	*get_next_line(int fd)
 		line[bytes_read] = 0;
 		array_append(&array, line);
 	}
-	free(line);
-	return (array_truncate(&array));
+	return (free(line), array_truncate(&array));
 }
 
 /*
