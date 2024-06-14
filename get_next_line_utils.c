@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:34:10 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 16:55:53 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:51:08 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (head);
 }
 
-unsigned int	ft_strlen(char *str)
+uint64_t	ft_strlen(char *str)
 {
-	unsigned int	len;
+	uint64_t	len;
 
 	len = 0;
 	while (*str++)
@@ -36,7 +36,7 @@ unsigned int	ft_strlen(char *str)
 
 void	array_init(t_array *array)
 {
-	unsigned int	x;
+	uint64_t	x;
 
 	array->count = 0;
 	array->capacity = BUFFER_SIZE;
@@ -53,8 +53,8 @@ void	array_init(t_array *array)
 
 void	array_append(t_array *array, char *line)
 {
-	char			*tmp;
-	unsigned int	len;
+	char		*tmp;
+	uint64_t	len;
 
 	len = ft_strlen(line);
 	while (array->count + len >= array->capacity)

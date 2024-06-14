@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:34:10 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 19:03:07 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:56:25 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (head);
 }
 
-unsigned int	ft_strlen(char *str)
+uint64_t	ft_strlen(char *str)
 {
-	unsigned int	len;
+	uint64_t	len;
 
 	len = 0;
 	while (*str++)

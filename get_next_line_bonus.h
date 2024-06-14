@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:31:07 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/05 19:03:51 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:56:52 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ typedef struct s_array
 	char		*buffer;
 }	t_array;
 
-char			*get_next_line(int fd);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-unsigned int	ft_strlen(char *str);
-long			carriage_index(t_array *array);
-void			array_init(t_array *array);
-void			array_append(t_array *array, char *line);
-void			*array_delete(t_array *array);
+char		*get_next_line(int fd);
+void		*ft_memcpy(void *dst, const void *src, size_t n);
+void		array_init(t_array *array);
+void		array_append(t_array *array, char *line);
+void		*array_delete(t_array *array);
+uint64_t	ft_strlen(char *str);
 
 #endif

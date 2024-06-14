@@ -6,16 +6,16 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:31:18 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/06 22:45:02 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:55:32 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-long	carriage_index(t_array *array)
+static	long	carriage_index(t_array *array)
 {
-	long			idx;
-	uint64_t		counter;
+	long		idx;
+	uint64_t	counter;
 
 	if (!array || !array->buffer)
 		return (-1);
@@ -32,9 +32,9 @@ long	carriage_index(t_array *array)
 
 static char	*array_truncate(t_array *array)
 {
-	unsigned int	len;
-	char			*line;
-	char			*tmp;
+	uint64_t	len;
+	char		*line;
+	char		*tmp;
 
 	len = carriage_index(array) + 1;
 	line = (char *)malloc(sizeof(char) * (len + 1));
@@ -55,8 +55,8 @@ static char	*array_truncate(t_array *array)
 
 static char	*handle_end_of_file(t_array *array, long bytes_read)
 {
-	unsigned int	len;
-	char			*line;
+	uint64_t	len;
+	char		*line;
 
 	if (bytes_read < 0 || array->count == 0)
 		return (array_delete(array));
